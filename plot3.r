@@ -19,12 +19,11 @@ plot3 <- function (directory){
     png(filename="plot3.png",width=480,height=480)
     
     ##Generate the graph
-    plot(data$Time, data$Sub_metering_1, xlab="", 
-        ylab="Energy sub metering", type = "l")
+    
     plot(data$Time, data$Sub_metering_2, xlab="", 
         ylab="Energy sub metering",col="red", type = "l")
-    plot(data$Time, data$Sub_metering_3, xlab="", 
-        ylab="Energy sub metering",col="blue", type = "l")
+    lines(data$Time, data$Sub_metering_1)
+    lines(data$Time, data$Sub_metering_3,col="blue")
     
     legend("topright",pch=2,col=c("black","red","blue"),legend=c("Sub_metering_1",
         "Sub_metering_2","Sub_metering_3"))
