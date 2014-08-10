@@ -12,7 +12,7 @@ plot2 <- function (directory){
     ##Convert the factor string Date into date format
     data$Date=as.Date(data$Date,format="%e/%m/%Y")
     
-    ##Convert the factor string Time into POSXITlt format
+    ##Convert the factor string Time into POSXITct format
     data$Time<-as.POSIXct(paste(data$Date,data$Time), "%Y-%M-%D %H:%M:%S")
     
     ##Set up the graphic device png
