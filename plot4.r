@@ -26,14 +26,15 @@ plot4 <- function (directory){
              ylab="Global Active Power(kilowatts)", type = "l")
         plot(data$Time, data$Voltage, xlab="datetime", 
              ylab="Voltage", type = "l")
-        plot(data$Time, data$Sub_metering_1, xlab="", 
-             ylab="Energy sub metering",col="blue", type = "l")
+        plot(data$Time, data$Sub_metering_2, xlab="", 
+             ylab="Energy sub metering",col="red", type = "l")
+        lines(data$Time, data$Sub_metering_1)
+        lines(data$Time, data$Sub_metering_3,col="blue")
+        legend("topright",pch=2,col=c("black","red","blue"),legend=c("Sub_metering_1",
+            "Sub_metering_2","Sub_metering_3"))
         plot(data$Time, data$Global_reactive_power, xlab="datetime", 
              ylab="Global_reactive_power", type = "l")
     })
-    
-    
-
     
     dev.off() ##Close the png file device
 }
