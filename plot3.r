@@ -18,10 +18,11 @@ plot3 <- function (directory){
     ##Set up the graphic device png
     png(filename="plot3.png",width=480,height=480)
     
-    ##Generate the graph
+    ##set the range for multiple lines
+    yrange<-range(c(data$Sub_metering_1,data$Sub_metering_2,data$Sub_metering_3))
     
     plot(data$Time, data$Sub_metering_2, xlab="", 
-        ylab="Energy sub metering",col="red", type = "l")
+        ylab="Energy sub metering",col="red", type = "l",ylim=range)
     lines(data$Time, data$Sub_metering_1)
     lines(data$Time, data$Sub_metering_3,col="blue")
     
