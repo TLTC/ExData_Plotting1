@@ -18,16 +18,22 @@ plot4 <- function (directory){
     ##Set up the graphic device png
     png(filename="plot4.png",width=480,height=480)
     
-    ##Generate the graph
-    plot(data$Time, data$Sub_metering_1, xlab="", 
-         ylab="Energy sub metering", type = "l")
-    plot(data$Time, data$Sub_metering_2, xlab="", 
-         ylab="Energy sub metering",col="red", type = "l")
-    plot(data$Time, data$Sub_metering_3, xlab="", 
-         ylab="Energy sub metering",col="blue", type = "l")
+    ##Set up the grid as two rows and two columns
+    par(mfrow=c(2,2))
     
-    legend("topright",pch=2,col=c("black","red","blue"),legend=c("Sub_metering_1",
-                                                                 "Sub_metering_2","Sub_metering_3"))
+    with(data,{
+        plot(data$Time, data$Global_active_power, xlab="", 
+             ylab="Global Active Power(kilowatts)", type = "l")
+        plot(data$Time, data$Voltage, xlab="datetime", 
+             ylab="Voltage", type = "l")
+        plot(data$Time, data$Sub_metering_1, xlab="", 
+             ylab="Energy sub metering",col="blue", type = "l")
+        plot(data$Time, data$Global_reactive_power, xlab="datetime", 
+             ylab="Global_reactive_power", type = "l")
+    })
+    
+    
+
     
     dev.off() ##Close the png file device
 }
