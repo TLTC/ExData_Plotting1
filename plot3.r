@@ -16,17 +16,17 @@ plot3 <- function (directory){
     data$Time<-as.POSIXct(paste(data$Date,data$Time), "%Y-%M-%D %H:%M:%S")
     
     ##Set up the graphic device png
-    png(filename="plot3.png",width=480,height=480)
+    png(filename="plot33.png",width=480,height=480)
     
     ##set the range for multiple lines
     yrange<-range(c(data$Sub_metering_1,data$Sub_metering_2,data$Sub_metering_3))
     
     plot(data$Time, data$Sub_metering_2, xlab="", 
-        ylab="Energy sub metering",col="red", type = "l",ylim=range)
+        ylab="Energy sub metering",col="red", type = "l",ylim=yrange)
     lines(data$Time, data$Sub_metering_1)
     lines(data$Time, data$Sub_metering_3,col="blue")
     
-    legend("topright",pch=2,col=c("black","red","blue"),legend=c("Sub_metering_1",
+    legend("topright",pch="-",col=c("black","red","blue"),legend=c("Sub_metering_1",
         "Sub_metering_2","Sub_metering_3"))
     
     dev.off() ##Close the png file device
